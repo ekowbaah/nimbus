@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2>{{ mode }} Post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input
+        formControlName="title"
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="body" class="form-label">Body:</label>
+      <textarea
+        id="body"
+        formControlName="body"
+        name="body"
+        class="form-control"
+      ></textarea>
+    </div>
+    <button [disabled]="postForm.invalid" type="submit" class="btn btn-primary">
+      {{ mode }} Post
+    </button>
+  </form>
+  <app-error></app-error>
+</div>

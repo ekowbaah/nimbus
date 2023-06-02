@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <app-error></app-error>
+  <div class="d-flex justify-content-end mb-4">
+    <button class="btn btn-primary" (click)="navigateToAddForm()">
+      Add Post
+    </button>
+  </div>
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let item of items$ | async"
+    >
+      <p class="text-truncate">
+        {{ item.title }}
+      </p>
+      <div class="d-flex flex-shrink-0">
+        <button
+          class="btn btn-sm btn-info me-2"
+          (click)="onItemClick(item.id); $event.stopPropagation()"
+        >
+          Edit
+        </button>
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="deletePost(item.id); $event.stopPropagation()"
+        >
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+  <app-error></app-error>
+</div>
